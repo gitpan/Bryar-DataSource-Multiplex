@@ -1,7 +1,7 @@
 # http://module-build.sourceforge.net/META-spec.html
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         Bryar-DataSource-Multiplex
-version:      0.10
+version:      0.12
 version_from: lib/Bryar/DataSource/Multiplex.pm
 installdirs:  site
 requires:

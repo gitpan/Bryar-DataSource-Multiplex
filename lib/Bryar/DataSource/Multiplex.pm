@@ -10,13 +10,13 @@ Bryar::DataSource::Multiplex - multiplex Bryar datasources
 
 =head1 VERSION
 
-version 0.10
+version 0.12
 
- $Id: Multiplex.pm,v 1.1.1.1 2004/10/23 01:47:37 rjbs Exp $
+ $Id: Multiplex.pm,v 1.2 2004/10/26 22:19:03 rjbs Exp $
 
 =cut
 
-our $VERSION = '0.10';
+our $VERSION = '0.12';
 
 =head1 DESCRIPTION
 
@@ -42,10 +42,8 @@ id is searched.
 
 =cut
 
-sub search { 
+sub search {
 	my ($self, $config, %params) = @_;
-
-use Data::Dumper; warn Dumper($config);
 
 	if ($params{subblog}) {
 		my ($source) = grep { $_->{id} eq $params{subblog} } @{$config->{sources}};
@@ -55,6 +53,7 @@ use Data::Dumper; warn Dumper($config);
 	if ($params{id} and $params{id} =~ /:/) {
 		my ($sourceid, $docid) = $params{id} =~ /(.*?):(.*)/;
 		my ($source) = grep { $_->{id} eq $sourceid } @{$config->{sources}};
+		eval "require $source->{source};";
 		return $source->{source}->search($source, (%params, id => $docid));
 	}
 
