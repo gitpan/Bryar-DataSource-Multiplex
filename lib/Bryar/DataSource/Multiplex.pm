@@ -10,13 +10,13 @@ Bryar::DataSource::Multiplex - multiplex Bryar datasources
 
 =head1 VERSION
 
-version 0.121
+version 0.122
 
- $Id: /my/cs/projects/bryar-mux/trunk/lib/Bryar/DataSource/Multiplex.pm 27803 2006-11-11T02:30:10.275639Z rjbs  $
+ $Id$
 
 =cut
 
-our $VERSION = '0.121';
+our $VERSION = '0.122';
 
 =head1 DESCRIPTION
 
